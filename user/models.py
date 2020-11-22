@@ -10,6 +10,9 @@ class Culture(models.Model):
     name = models.CharField(max_length=255)
     harvest_time = models.TimeField()
 
+    def __str__(self):
+        return self.name
+
 
 class DatesCults(models.Model):
     culture = models.ForeignKey(Culture, on_delete=models.CASCADE)
