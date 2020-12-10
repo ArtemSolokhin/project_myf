@@ -33,15 +33,29 @@
 
     export default {
         name: "SignIn",
+        
         data() {
             return {
                 new_user: {
                     username: '',
                     password: '',
+                },
+                items: [],
+            }
+        },
+        async mounted() {
+            let response = await fetch(config.api_path + 'user/');
+            this.items = await response.json();
+
+            response = await response.json();
+            console.log(this.items);
+            for(let key in response) {
+                console.log(response[key]);
+                if (response[key].username == this.new_user.username && response[key].password == this.new_user.password){
+                    console.log(response[key].id);
                 }
             }
         },
-
         methods: {
             onSubmit: function (e) {
                 e.preventDefault();
@@ -51,10 +65,9 @@
                     'Content-Type': 'application/json;charset=utf-8'
                   },
                   body: JSON.stringify(this.new_user)
-                }).then(() => {
-                    this.$router.push('/profile');
-                });
+                })
+                }
             }
         }
-    }
+    
 </script>

@@ -6,6 +6,7 @@ import UpdateField from '../views/UpdateField'
 import Registration from '../views/Registration'
 import Profile from '../views/Profile'
 import SignIn from '../views/SignIn'
+import AddCulturesToField from '../views/AddCulturesToField'
 
 
 Vue.use(VueRouter);
@@ -40,7 +41,12 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
-  }
+  },
+  {
+    path: '/add-cultures',
+    name: 'AddCulturesToField',
+    component: AddCulturesToField
+  },
 ];
 
 const router = new VueRouter({

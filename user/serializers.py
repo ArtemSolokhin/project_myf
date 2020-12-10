@@ -23,13 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
             raise ValidationError("This is not an email!")
         return value
 
-    @staticmethod
-    def validate_password(value):
-        if not re.match(r"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", value):
-            raise ValidationError("Password must contain at least eight characters,"
-                                  " at least one number and both lower and uppercase letters"
-                                  " and special characters")
-        return value
+    
 
 
 class CultureSerializer(serializers.ModelSerializer):
